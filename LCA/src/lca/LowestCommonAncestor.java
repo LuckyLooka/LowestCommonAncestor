@@ -114,6 +114,11 @@ public class LowestCommonAncestor {
 		testTree.root.left.left.left = new Node(8);
 		testTree.root.left.left.right = new Node(9);
 		
+		System.out.println("LCA(4, 5): " + testTree.findLCA(4,5)); 
+       		System.out.println("LCA(4, 6): " + testTree.findLCA(4,6)); 
+       		System.out.println("LCA(3, 4): " + testTree.findLCA(3,4)); 
+        	System.out.println("LCA(2, 4): " + testTree.findLCA(2,4));
+		
 		
 	}
 
