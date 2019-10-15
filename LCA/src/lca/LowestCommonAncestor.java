@@ -3,6 +3,7 @@ package lca;
 import java.util.ArrayList; 
 import java.util.List;
 
+//Node data structure
 class Node{
 	int data;
 	Node left;
@@ -13,7 +14,8 @@ class Node{
 		right = null;
 	}
 }
-
+//Solution to LCA by recursively creating lists of the paths from root to nodes, and then comparing these lists
+//until unique nodes are reached and returning the node previous to those unique nodes as the LCA.
 class LcaSolution{
 	Node root; 
     private List<Integer> path1 = new ArrayList<>(); 
@@ -28,16 +30,18 @@ class LcaSolution{
   
     private int findLCAInternal(Node root, int n1, int n2) { 
   
+    	//check to make sure both nodes are on the tree.
         if (!findPath(root, n1, path1) || !findPath(root, n2, path2)) { 
             System.out.println((path1.size() > 0) ? "n1 is present" : "n1 is missing"); 
             System.out.println((path2.size() > 0) ? "n2 is present" : "n2 is missing"); 
             return -1; 
         } 
-  
-        int i; 
+        
+        
+        int i;         
         for (i = 0; i < path1.size() && i < path2.size(); i++) { 
               
-        // System.out.println(path1.get(i) + " " + path2.get(i)); 
+         //System.out.println(path1.get(i) + " " + path2.get(i)); 
             if (!path1.get(i).equals(path2.get(i))) 
                 break; 
         } 
@@ -45,7 +49,7 @@ class LcaSolution{
         return path1.get(i-1); 
     } 
       
-    // Finds the path from root node to given root of the tree, Stores the 
+    // Finds the path from root node to given node of the tree, Stores the 
     // path in a vector path[], returns true if path exists otherwise false 
     private boolean findPath(Node root, int n, List<Integer> path) 
     { 
@@ -115,11 +119,9 @@ public class LowestCommonAncestor {
 		testTree.root.left.left.right = new Node(9);
 		
 		System.out.println("LCA(4, 5): " + testTree.findLCA(4,5)); 
-       		System.out.println("LCA(4, 6): " + testTree.findLCA(4,6)); 
-       		System.out.println("LCA(3, 4): " + testTree.findLCA(3,4)); 
-        	System.out.println("LCA(2, 4): " + testTree.findLCA(2,4));
-		
-		
+        System.out.println("LCA(4, 6): " + testTree.findLCA(4,6)); 
+        System.out.println("LCA(3, 4): " + testTree.findLCA(3,4)); 
+        System.out.println("LCA(2, 4): " + testTree.findLCA(2,4));
 	}
 
 }
