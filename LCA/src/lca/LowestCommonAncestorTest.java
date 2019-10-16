@@ -47,7 +47,18 @@ class LowestCommonAncestorTest {
 	}
 	@Test
 	void missingNodeTest() {
+		LcaSolution testTree = new LcaSolution();
+		testTree.root = new Node(1);
+		testTree.root.left = new Node(2);
+		testTree.root.right = new Node(3);
+		testTree.root.left.left = new Node(4);
 		
+		//Testing if n1 is missing
+		assertEquals(-1, testTree.findLCA(4, 5));
+		//Testing if n2 is missing
+		assertEquals(-1, testTree.findLCA(6, 1));
+		//Testing if both n1 and n2 are missing
+		assertEquals(-1, testTree.findLCA(6, 9));
 	}
 	
 	@Test
