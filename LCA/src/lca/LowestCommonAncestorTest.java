@@ -37,7 +37,11 @@ class LowestCommonAncestorTest {
 	}
 	
 	@Test
-	void nullTreeLca() {
+	void nullRootLca() {
+		//Root is null by default constructor
+		LcaSolution testTree = new LcaSolution();
+		assertEquals("LCA returned incorrect value, should be -1 for null root", -1, testTree.findLCA(2, 3));		
+	}
 		
 		
 	}
