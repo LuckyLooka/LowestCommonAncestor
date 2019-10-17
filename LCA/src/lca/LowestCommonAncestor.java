@@ -3,6 +3,7 @@ package lca;
 import java.util.ArrayList; 
 import java.util.List;
 
+//Directed Acyclic Graph Data Structure
 class DAG {
 	   Node root; // assuming only one root exists
 
