@@ -2,19 +2,15 @@ package lca;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 class LowestCommonAncestorTest {
-
-	//	@Test
-//	void test() {
-//		
-//	}
 	
 	@Test
 	void testLcaStandardCase() {
-		LcaSolution testTree = new LcaSolution();
+		LowestCommonAncestor testTree = new LowestCommonAncestor();
 		testTree.root = new Node(1);
 		testTree.root.left = new Node(2);
 		testTree.root.right = new Node(3);
@@ -39,15 +35,13 @@ class LowestCommonAncestorTest {
 	@Test
 	void nullRootLca() {
 		//Root is null by default constructor
-		LcaSolution testTree = new LcaSolution();
+		LowestCommonAncestor testTree = new LowestCommonAncestor();
 		assertEquals("LCA returned incorrect value, should be -1 for null root", -1, testTree.findLCA(2, 3));		
 	}
-		
-		
-	}
+	
 	@Test
 	void missingNodeTest() {
-		LcaSolution testTree = new LcaSolution();
+		LowestCommonAncestor testTree = new LowestCommonAncestor();
 		testTree.root = new Node(1);
 		testTree.root.left = new Node(2);
 		testTree.root.right = new Node(3);
@@ -61,9 +55,6 @@ class LowestCommonAncestorTest {
 		assertEquals(-1, testTree.findLCA(6, 9));
 	}
 	
-	@Test
-	void BinaryTreeCreation() {
 	
-	}
 
 }
