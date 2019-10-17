@@ -3,17 +3,15 @@ package lca;
 import java.util.ArrayList; 
 import java.util.List;
 
-//Node data structure
-class Node{
-	int data;
-	Node left;
-	Node right;
-	public Node(int value) {
-		this.data = value;
-		left = null;
-		right = null;
+class DAG {
+	   Node root; // assuming only one root exists
+
+	   class Node{
+	      List<Node> successors;
+	      List<Node> parents;
+	      int value; 
+	   }
 	}
-}
 //Solution to LCA by recursively creating lists of the paths from root to nodes, and then comparing these lists
 //until unique nodes are reached and returning the node previous to those unique nodes as the LCA.
 class LowestCommonAncestor{
