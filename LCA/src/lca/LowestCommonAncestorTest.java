@@ -46,13 +46,13 @@ class LowestCommonAncestorTest {
 		list7.add(node8);
 		node7.successors = list7;
 		
-		assertEquals("LCA is incorrect, should be 4 but instead returned" +testTree.findLCA(8,9), 4, testTree.findLCA(8,9));
+		assertEquals("LCA is incorrect, should be 5 but instead returned" +testDAG.findLCA(7,8), 5, testDAG.findLCA(7,8));
 		
-		assertEquals("LCA is incorrect, should be 1 but instead returned" +testTree.findLCA(7,9), 1, testTree.findLCA(7,9));
+		assertEquals("LCA is incorrect, should be 5 but instead returned" +testDAG.findLCA(7,6), 5, testDAG.findLCA(7,6));
 		
-		assertEquals("LCA is incorrect, should be 3 but instead returned" +testTree.findLCA(6,7),3, testTree.findLCA(6,7));
+		assertEquals("LCA is incorrect, should be 1 but instead returned" +testDAG.findLCA(4,3),1, testDAG.findLCA(4,3));
 		
-		assertEquals("LCA is incorrect, should be 2 but instead returned" +testTree.findLCA(9,5), 2, testTree.findLCA(9,5));
+		assertEquals("LCA is incorrect, should be 3 but instead returned" +testDAG.findLCA(5,7), 3, testDAG.findLCA(5,7));
 		
 		
 	}
