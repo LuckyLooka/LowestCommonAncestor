@@ -60,8 +60,10 @@ class LowestCommonAncestorTest {
 	@Test
 	void nullRootLca() {
 		//Root is null by default constructor
-		LowestCommonAncestor testTree = new LowestCommonAncestor();
-		assertEquals("LCA returned incorrect value, should be -1 for null root", -1, testTree.findLCA(2, 3));		
+		LowestCommonAncestor testDAG = new LowestCommonAncestor();
+		
+		//Ensures -1 is returned as the root in this case is null
+		assertEquals("LCA returned incorrect value, should be -1 for null root", -1, testDAG.findLCA(2, 3));		
 	}
 	
 	@Test
