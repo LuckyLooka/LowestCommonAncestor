@@ -16,7 +16,7 @@ class Node{
 }
 //Solution to LCA by recursively creating lists of the paths from root to nodes, and then comparing these lists
 //until unique nodes are reached and returning the node previous to those unique nodes as the LCA.
-class LcaSolution{
+class LowestCommonAncestor{
 	Node root; 
     private List<Integer> path1 = new ArrayList<>(); 
     private List<Integer> path2 = new ArrayList<>(); 
@@ -31,15 +31,24 @@ class LcaSolution{
     private int findLCAInternal(Node root, int n1, int n2) { 
   
     	//check to make sure both nodes are on the tree.
-        if (!findPath(root, n1, path1) || !findPath(root, n2, path2)) { 
-            System.out.println((path1.size() > 0) ? "n1 is present" : "n1 is missing"); 
-            System.out.println((path2.size() > 0) ? "n2 is present" : "n2 is missing"); 
-            return -1; 
-        } 
+        if(!findPath(root, n1, path1)) {
+        		System.out.println("no path to n1");
+        	return -1;
+        }
+        if(!findPath(root, n2, path2)) {
+        		System.out.println("no path to n2");
+        	return -1;
+        }
         
         
-        int i;         
-        for (i = 0; i < path1.size() && i < path2.size(); i++) { 
+        int i;
+        int shortestPath;
+        if (path1.size() > path2.size())
+        	shortestPath = path2.size();
+        else
+        	shortestPath = path1.size();
+        
+        for (i = 0; i < shortestPath; i++) { 
               
          //System.out.println(path1.get(i) + " " + path2.get(i)); 
             if (!path1.get(i).equals(path2.get(i))) 
@@ -80,6 +89,8 @@ class LcaSolution{
   
         return false; 
     } 
+    
+    //Attempt to display binary tree in console, gave up as it is unnecessary waste of time.
 //	public void displayTree(Node root) {
 //		Node current = root;
 //		Node temp = current;
@@ -104,24 +115,4 @@ class LcaSolution{
 //	}
 }
 
-public class LowestCommonAncestor {
 
-	public static void main(String[] args) {
-		LcaSolution testTree = new LcaSolution();
-		testTree.root = new Node(1);
-		testTree.root.left = new Node(2);
-		testTree.root.right = new Node(3);
-		testTree.root.left.left = new Node(4);
-		testTree.root.left.right = new Node(5);
-		testTree.root.right.left = new Node(6);
-		testTree.root.right.right = new Node(7);
-		testTree.root.left.left.left = new Node(8);
-		testTree.root.left.left.right = new Node(9);
-		
-		System.out.println("LCA(4, 5): " + testTree.findLCA(4,5)); 
-        System.out.println("LCA(4, 6): " + testTree.findLCA(4,6)); 
-        System.out.println("LCA(3, 4): " + testTree.findLCA(3,4)); 
-        System.out.println("LCA(2, 4): " + testTree.findLCA(2,4));
-	}
-
-}
