@@ -7,6 +7,9 @@ import java.util.List;
 class Node{
     List<Node> successors;
     int value; 
+    public Node(int val) {
+    	this.value = val;
+    }
  }
 //Solution to LCA by recursively creating lists of the paths from root to nodes, and then comparing these lists
 //until unique nodes are reached and returning the node previous to those unique nodes as the LCA.
@@ -58,6 +61,8 @@ class LowestCommonAncestor{
         	if (path1.get(endPath1).equals(path2.get(endPath2))) {
         		return path1.get(endPath1-1);
         	}
+        	endPath1--;
+        	endPath2--;
         }
         return -1;
     } 
